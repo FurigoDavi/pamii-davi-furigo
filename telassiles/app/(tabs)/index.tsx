@@ -1,11 +1,16 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { useFonts } from 'expo-font';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen() {
+
+  const [fontsLoaded] = useFonts({
+    FontZap : require('./assets/fonts/fontezap')
+  })
   return (
     <View style={styles.container}>
 
       <View style={styles.header}>
-        <Text> aqui </Text>
+        <Text> WhatsApp </Text>
 
         <View style={styles.pesquisa}>
           <Text> Pergunte à Meta AI ou pesquise </Text>
