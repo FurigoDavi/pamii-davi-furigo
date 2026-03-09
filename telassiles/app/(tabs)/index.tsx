@@ -4,73 +4,66 @@ import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react
 const conversas = [ // Array com conversas
 	{
 		id: '1', // Identificador único
-		nome: 'João Sifiles',
+		nome: 'João Siles',
 		mensagem: 'que tela perfeita, MB',
 		hora: '07:45',
-		foto: require('../../assets/images/siles.jpg'),
+		foto: require('../../assets/images/contacts/siles.jpg'),
 	},
 	{
 		id: '2',
 		nome: 'enejota',
 		mensagem: 'valeu pelas dicas pra bater penal...',
 		hora: '05:27',
-		foto: require('../../assets/images/neymar.jpg'),
+		foto: require('../../assets/images/contacts/neymar.jpg'),
 	},
 	{
 		id: '3',
 		nome: 'Japones yuji',
 		mensagem: 'Eu sou mais louco que tod...',
 		hora: '00:05',
-		foto: require('../../assets/images/yuji.jpeg'),
+		foto: require('../../assets/images/contacts/yuji.jpeg'),
 	},
 	{
 		id: '4', 
 		nome: 'PH',
 		mensagem: 'Davi, o siles disse que quer...',
 		hora: 'Ontem',
-		foto: require('../../assets/images/ph.jpg'),
+		foto: require('../../assets/images/contacts/ph.jpg'),
 	},
 	{
 		id: '5',
 		nome: 'Gustavo lopez',
 		mensagem: 'fala q eu coloco la',
 		hora: 'Ontem',
-		foto: require('../../assets/images/lopez.jpg'),
+		foto: require('../../assets/images/contacts/lopez.jpg'),
 	},
 	{
 		id: '6',
-		nome: 'João Sifiles',
-		mensagem: 'que tela perfeita, MB',
-		hora: '07:45',
-		foto: require('../../assets/images/siles.jpg'),
+		nome: 'Carol',
+		mensagem: 'sim',
+		hora: 'Ontem',
+		foto: require('../../assets/images/contacts/carol.jpg'),
 	},
 	{
 		id: '7',
-		nome: 'enejota',
-		mensagem: 'valeu pelas dicas pra bater penal...',
-		hora: '05:27',
-		foto: require('../../assets/images/neymar.jpg'),
+		nome: 'Markinho',
+		mensagem: 'Sua ajuda foi ótima para a Meta, aqu...',
+		hora: 'Ontem',
+		foto: require('../../assets/images/contacts/mark.jpg'),
 	},
 	{
 		id: '8',
-		nome: 'Japones yuji',
-		mensagem: 'eu sou mais louco que tod...',
-		hora: '00:05',
-		foto: require('../../assets/images/yuji.jpeg'),
+		nome: 'Bill Portões',
+		mensagem: 'Quer trabalhar para mim? Eu ofereç...',
+		hora: 'Ontem',
+		foto: require('../../assets/images/contacts/bill.jpg'),
 	},
 	{
 		id: '9', 
-		nome: 'PH',
-		mensagem: 'Davi, o siles disse que quer...',
+		nome: 'Moska',
+		mensagem: 'Gostaria de uma viagem grátis para Marte?',
 		hora: 'Ontem',
-		foto: require('../../assets/images/ph.jpg'),
-	},
-	{
-		id: '10', 
-		nome: 'Gustavo lopez',
-		mensagem: 'fala q eu coloco la',
-		hora: 'Ontem',
-		foto: require('../../assets/images/lopez.jpg'),
+		foto: require('../../assets/images/contacts/elon.jpg'),
 	},
 ];
 
@@ -91,24 +84,26 @@ export default function HomeScreen() {
 				<Text style={ styles.textoPesquisa }>Pergunte à Meta AI ou pesquise</Text>
 			</View>
     	</View>
-      	<FlatList // Para listas grandes
-			style={ styles.conversas }
-			contentContainerStyle={ styles.conversasItens }
-        	data={ conversas } // Qual lista sera exibida
-        	keyExtractor={ (item) => item.id } // Id único para cada item
-        	renderItem={
-				({ item }) => ( // Como cada conversa será desenhada na tela
-					<View style={ styles.conversa }>
-						<Image style={ styles.foto } source={ item.foto } resizeMode="contain"/>
-						<View style={ styles.textos }>
-							<Text style={ styles.nome }>{ item.nome }</Text>
-							<Text style={ styles.mensagem }>{ item.mensagem }</Text>
+		<View style={ styles.ultimaView }>
+			<FlatList // Para listas grandes
+				style={ styles.conversas }
+				contentContainerStyle={ styles.conversasItens }
+				data={ conversas } // Qual lista será exibida
+				keyExtractor={ (item) => item.id } // Id único para cada item
+				renderItem={
+					({ item }) => ( // Como cada conversa será desenhada na tela
+						<View style={ styles.conversa }>
+							<Image style={ styles.foto } source={ item.foto } resizeMode="contain"/>
+							<View style={ styles.textos }>
+								<Text style={ styles.nome }>{ item.nome }</Text>
+								<Text style={ styles.mensagem }>{ item.mensagem }</Text>
+							</View>
+							<Text style={ styles.hora }>{ item.hora }</Text>
 						</View>
-						<Text style={ styles.hora }>{ item.hora }</Text>
-					</View>
-        		)
-			}
-      	/>
+					)
+				}
+			/>
+		</View>
       	<TouchableOpacity style={ styles.botao }> 
         	<Ionicons name="chatbubble" size={ 24 } color="black" />
       	</TouchableOpacity> { /*botao clicavel*/ }
@@ -118,17 +113,21 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
 	container: {
-		justifyContent: 'center', // Coloca os itens no topo
-		alignItems: 'flex-start',
 		height: '100%',
+		gap: 20,
+		overflowY: 'scroll',
 		backgroundColor: '#0B1014',
 	},
 
 	header: {
+		position: 'fixed',
+		top: 0,
 		flexDirection: 'column',
 		gap: 12,
 		width: '100%',
 		padding: 12,
+		backgroundColor: '#0B1014',
+		zIndex: 1,
 	},
 
 	topo: {
@@ -138,6 +137,7 @@ const styles = StyleSheet.create({
 	},
 
 	titulo: {
+		flexGrow: 1,
 		color: 'white',
 		fontSize: 24,
 		fontWeight: 'bold',
@@ -164,6 +164,7 @@ const styles = StyleSheet.create({
 	},
 
 	conversas: {
+		marginTop: 120,
 		width: '100%',
 	},
 
@@ -207,12 +208,16 @@ const styles = StyleSheet.create({
 		fontSize: 13,
 	},
 
+	ultimaView: {
+		paddingBottom: 80,
+	},
+
 	botao: {
-		position: 'absolute', // Botão flutuante
+		position: 'fixed', // Botão flutuante
 		justifyContent: 'center',
 		alignItems: 'center',
 		right: 16,
-		bottom: 16,
+		bottom: 86,
 		backgroundColor: '#25D366',
 		width: 60,
 		height: 60,

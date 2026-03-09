@@ -11,12 +11,12 @@ export default function TabLayout() {
           tabBarActiveTintColor: '#25D366',
           tabBarInactiveTintColor: '#8E8E93',
 
-          tabBarLabelPosition: "below-icon",//icones em cima
+          tabBarLabelPosition: "below-icon", // Ícones em cima
 
           tabBarStyle: {
           backgroundColor: '#0B1014',
           height: 70,
-          paddingBottom: 8,//centraliza icones
+          paddingBottom: 8, // Centraliza ícones
           paddingTop: 6,
           borderTopWidth: 0,
         },
