@@ -33,20 +33,23 @@ export default function TabLayout() {
         options={{
           title: 'Conversas',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="chatbubble" size={size} color={color} />
+            <Ionicons name="chatbubble"
+              size={ size }
+              color={ color }
+            />
           ),
         }}
       />
 
       <Tabs.Screen
-        name="update"
+        name="updates"
         options={{
           title: 'Atualizações',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
               name="progress-clock"
-              size={size}
-              color={color}
+              size={ size }
+              color={ color }
             />
           ),
         }}
@@ -58,7 +61,10 @@ export default function TabLayout() {
           title: 'Comunidades',
           tabBarLabel: 'Comunidades',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="people" size={size} color={color} />
+            <Ionicons name="people"
+              size={ size }
+              color={ color }
+            />
           ),
         }}
       />
@@ -68,7 +74,10 @@ export default function TabLayout() {
         options={{
           title: 'Chamadas',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="call" size={size} color={color} />
+            <Ionicons name="call"
+              size={ size }
+              color={ color }
+            />
           ),
         }}
       />

@@ -1,62 +1,79 @@
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const conversas = [ // Array com conversas
+const status = [ // Array com status
 	{
-		id: '1', // Identificador único
+		id: '1', // Identificador único 
 		nome: 'João Siles',
-		mensagem: 'que tela perfeita, MB',
-		hora: '10:45',
 		foto: require('../../assets/images/siles.jpg'),
+		status: require('../../assets/images/imagem.jpg'),
 	},
 	{
 		id: '2',
 		nome: 'enejota',
-		mensagem: 'valeu pelas dicas pra bater penal...',
-		hora: '09:20',
 		foto: require('../../assets/images/neymar.jpg'),
+		status: require('../../assets/images/imagem.jpg'),
 	},
 	{
 		id: '3',
 		nome: 'Japones yuji',
-		mensagem: 'eu sou mais louco que tod...',
-		hora: '19:45',
 		foto: require('../../assets/images/yuji.jpeg'),
+		status: require('../../assets/images/imagem.jpg'),
 	},
 	{
 		id: '4', 
 		nome: 'PH',
-		mensagem: 'Davi, o siles disse que quer...',
-		hora: '07:38',
 		foto: require('../../assets/images/ph.jpg'),
+		status: require('../../assets/images/imagem.jpg'),
 	},
 	{
 		id: '5', 
 		nome: 'Gustavo lopes',
-		mensagem: 'fala q eu coloco la',
-		hora: '21:45',
 		foto: require('../../assets/images/lopez.jpg'),
+		status: require('../../assets/images/imagem.jpg'),
 	},
 ];
 
-export default function HomeScreen() {
+export default function Updates() {
 
   	return (
     <View style={ styles.container }>
       	<View style={ styles.header }>
         	<View style={ styles.topo }>
-          		<Text style={ styles.titulo }>WhatsApp</Text>
+          		<Text style={ styles.titulo }>Atualizações</Text>
           		<View style={ styles.icones }>
-            		<Ionicons name="camera" size={ 24 } color="white" /> 
+            		<MaterialIcons name="search" size={ 24 } color="white" /> 
             		<MaterialIcons name="more-vert" size={ 24 } color="white" />
           		</View>
         	</View>
-			<View style={ styles.pesquisa }>
-				<Ionicons name="search" size={ 24 } color="#9AA0A6" />
-				<Text style={ styles.textoPesquisa }>Pergunte à Meta AI ou pesquise</Text>
-			</View>
     	</View>
+		<View style={ styles.statusSecao }>
+			<Text style={ styles.statusTitulo }>Status</Text>
+		</View>
       	<FlatList // Para listas grandes
+			style={ styles.status }
+			contentContainerStyle={ styles.statusItens }
+        	data={ status } // Qual lista sera exibida
+        	keyExtractor={ (item) => item.id } // Id único para cada item
+			ListHeaderComponent={ // Componente fixo no topo
+				<View style={ styles.novoStatus }>
+					<View style={styles.novoStatusFundo}></View>
+					<Image style={styles.novoStatusFoto} /* source={} */ />
+					<Text style={ styles.novoStatusNome }>Adicionar Status</Text>
+				</View>
+  			}
+        	renderItem={
+				({ item }) => ( // Como cada conversa será desenhada na tela
+					<View style={styles.statusItem}>
+						<Image style={styles.statusPostagem} source={item.status} />
+						<Image style={styles.foto} source={item.foto} />
+						<View style={styles.fotoBorda}></View>
+						<Text style={styles.nome}>{item.nome}</Text>
+					</View>
+        		)
+			}
+      	/>
+      	{/* <FlatList // Para listas grandes
 			style={ styles.conversas }
 			contentContainerStyle={ styles.conversasItens }
         	data={ conversas } // Qual lista sera exibida
@@ -73,9 +90,9 @@ export default function HomeScreen() {
 					</View>
         		)
 			}
-      	/>
+      	/> */}
       	<TouchableOpacity style={ styles.botao }> 
-        	<Ionicons name="chatbubble" size={ 24 } color="black" />
+        	<Ionicons name="camera" size={ 24 } color="black" />
       	</TouchableOpacity> { /*botao clicavel*/ }
     </View>
   	);
@@ -105,7 +122,6 @@ const styles = StyleSheet.create({
 	titulo: {
 		color: 'white',
 		fontSize: 24,
-		fontWeight: 'bold',
 	},
 
 	icones: {
@@ -113,43 +129,62 @@ const styles = StyleSheet.create({
 		gap: 24, // Espaço entre ícones
 	},
 
-	pesquisa: {
+	statusTitulo: {
+		color: '#FFFFFF'
+	},
+
+	status: {
+		width: '100%',
+		backgroundColor: '#faf',
 		flexDirection: 'row',
-		alignItems: 'center',
-		gap: 12,
-		borderRadius: 32,
-		height: 48,
-		backgroundColor: '#373E44',
-		paddingHorizontal: 16,
+		overflowX: 'auto',
+	},
+	
+	statusItens: {
+		flexDirection: 'row',
+		gap: 4,
+		overflowX: 'auto',
 	},
 
-	textoPesquisa: {
-		color: '#9AA0A6',
-		fontSize: 15,
+	statusItem: {
+		position: 'relative',
+		height: 150,
+		width: 80,
+		borderRadius: 16,
+		overflow: 'hidden',
 	},
 
-	conversas: {
+	statusPostagem: {
+		height: '100%',
 		width: '100%',
 	},
 
-	conversasItens: {
-		gap: 8,
-	},
-
-	conversa: {
-		flexDirection: 'row', // Itens lado a lado
-		alignItems: 'flex-start',
-		gap: 12,
-		paddingVertical: 8,
-		paddingHorizontal: 12,
-		// borderWidth: 2,
-		// borderColor: '#333',
-	},
-
 	foto: {
-		width: 50,
-		height: 50,
+		position: 'absolute',
+		width: 36,
+		height: 36,
+		top: 30,
+		left: 30,
+		transform: [
+			{ translateX: '-50%' },
+			{ translateY: '-50%' }
+		],
 		borderRadius: '50%',
+	},
+
+	fotoBorda: {
+		position: 'absolute',
+		width: 44,
+		height: 44,
+		top: 30,
+		left: 30,
+		transform: [
+			{ translateX: '-50%' },
+			{ translateY: '-50%' }
+		],
+		borderRadius: '50%',
+		borderWidth: 2,
+		borderColor: '#25D366'
 	},
 
 	textos: {
