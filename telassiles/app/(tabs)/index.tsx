@@ -4,37 +4,72 @@ import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react
 const conversas = [ // Array com conversas
 	{
 		id: '1', // Identificador único
-		nome: 'João Siles',
+		nome: 'João Sifiles',
 		mensagem: 'que tela perfeita, MB',
-		hora: '10:45',
+		hora: '07:45',
 		foto: require('../../assets/images/siles.jpg'),
 	},
 	{
 		id: '2',
 		nome: 'enejota',
 		mensagem: 'valeu pelas dicas pra bater penal...',
-		hora: '09:20',
+		hora: '05:27',
 		foto: require('../../assets/images/neymar.jpg'),
 	},
 	{
 		id: '3',
 		nome: 'Japones yuji',
-		mensagem: 'eu sou mais louco que tod...',
-		hora: '19:45',
+		mensagem: 'Eu sou mais louco que tod...',
+		hora: '00:05',
 		foto: require('../../assets/images/yuji.jpeg'),
 	},
 	{
 		id: '4', 
 		nome: 'PH',
 		mensagem: 'Davi, o siles disse que quer...',
-		hora: '07:38',
+		hora: 'Ontem',
 		foto: require('../../assets/images/ph.jpg'),
 	},
 	{
-		id: '5', 
-		nome: 'Gustavo lopes',
+		id: '5',
+		nome: 'Gustavo lopez',
 		mensagem: 'fala q eu coloco la',
-		hora: '21:45',
+		hora: 'Ontem',
+		foto: require('../../assets/images/lopez.jpg'),
+	},
+	{
+		id: '6',
+		nome: 'João Sifiles',
+		mensagem: 'que tela perfeita, MB',
+		hora: '07:45',
+		foto: require('../../assets/images/siles.jpg'),
+	},
+	{
+		id: '7',
+		nome: 'enejota',
+		mensagem: 'valeu pelas dicas pra bater penal...',
+		hora: '05:27',
+		foto: require('../../assets/images/neymar.jpg'),
+	},
+	{
+		id: '8',
+		nome: 'Japones yuji',
+		mensagem: 'eu sou mais louco que tod...',
+		hora: '00:05',
+		foto: require('../../assets/images/yuji.jpeg'),
+	},
+	{
+		id: '9', 
+		nome: 'PH',
+		mensagem: 'Davi, o siles disse que quer...',
+		hora: 'Ontem',
+		foto: require('../../assets/images/ph.jpg'),
+	},
+	{
+		id: '10', 
+		nome: 'Gustavo lopez',
+		mensagem: 'fala q eu coloco la',
+		hora: 'Ontem',
 		foto: require('../../assets/images/lopez.jpg'),
 	},
 ];
@@ -64,7 +99,7 @@ export default function HomeScreen() {
         	renderItem={
 				({ item }) => ( // Como cada conversa será desenhada na tela
 					<View style={ styles.conversa }>
-						<Image style={ styles.foto } source={ item.foto }/>
+						<Image style={ styles.foto } source={ item.foto } resizeMode="contain"/>
 						<View style={ styles.textos }>
 							<Text style={ styles.nome }>{ item.nome }</Text>
 							<Text style={ styles.mensagem }>{ item.mensagem }</Text>
@@ -142,8 +177,6 @@ const styles = StyleSheet.create({
 		gap: 12,
 		paddingVertical: 8,
 		paddingHorizontal: 12,
-		// borderWidth: 2,
-		// borderColor: '#333',
 	},
 
 	foto: {
