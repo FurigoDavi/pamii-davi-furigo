@@ -55,13 +55,13 @@ export default function Updates() {
 			contentContainerStyle={ styles.statusItens }
         	data={ status } // Qual lista sera exibida
         	keyExtractor={ (item) => item.id } // Id único para cada item
-			ListHeaderComponent={ // Componente fixo no topo
-				<View style={ styles.novoStatus }>
-					<View style={styles.novoStatusFundo}></View>
-					<Image style={styles.novoStatusFoto} /* source={} */ />
-					<Text style={ styles.novoStatusNome }>Adicionar Status</Text>
-				</View>
-  			}
+			// ListHeaderComponent={ // Componente fixo no topo
+			// 	<View style={ styles.novoStatus }>
+			// 		<View style={styles.novoStatusFundo}></View>
+			// 		<Image style={styles.novoStatusFoto} /* source={} */ />
+			// 		<Text style={ styles.novoStatusNome }>Adicionar Status</Text>
+			// 	</View>
+  			// }
         	renderItem={
 				({ item }) => ( // Como cada conversa será desenhada na tela
 					<View style={styles.statusItem}>
