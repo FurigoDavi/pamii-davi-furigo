@@ -8,12 +8,13 @@ export default function TabLayout() {
         tabBarActiveTintColor: '#000000ff',
         headerStyle: {
           backgroundColor: '#fff',
-          height: 10,
+          height: 0,
         },
         headerShadowVisible: false,
         headerTintColor: '#fff',
         tabBarStyle: {
           backgroundColor: '#fff',
+          height: 55,
         },
     }}
     >
@@ -36,9 +37,9 @@ export default function TabLayout() {
         }} 
       />
       <Tabs.Screen 
-        name="box" 
+        name="inbox" 
         options={{ 
-          title: 'Caixa de...',
+          title: 'Caixa de Entrada',
           tabBarIcon: ({ color, focused }) => (
             <Ionicons name={focused ? 'ellipsis-horizontal-circle-outline' : 'ellipsis-horizontal-circle-outline'} color={color} size={24}/>
           ),

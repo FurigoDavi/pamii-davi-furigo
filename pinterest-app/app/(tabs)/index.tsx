@@ -2,9 +2,15 @@ import ImageViewer from '@/components/ImageViewer';
 import { StyleSheet, View } from "react-native";
 
 const Img1 = { src: require('@/assets/images/img1.jpg'), height: 350 };
-const Img2 = { src: require('@/assets/images/img2.jpg'), height: 230 };
-const Img3 = { src: require('@/assets/images/img3.jpg'), height: 300 };
-const Img4 = { src: require('@/assets/images/img4.jpg'), height: 280 };
+const Img2 = { src: require('@/assets/images/img2.jpg'), height: 350 };
+const Img3 = { src: require('@/assets/images/img3.jpg'), height: 400 };
+const Img4 = { src: require('@/assets/images/img4.jpg'), height: 250 };
+const Img5 = { src: require('@/assets/images/img5.jpg'), height: 300 };
+const Img6 = { src: require('@/assets/images/img6.jpg'), height: 250 };
+const Img7 = { src: require('@/assets/images/img7.jpg'), height: 250 };
+const Img8 = { src: require('@/assets/images/img8.jpg'), height: 350 };
+const Img9 = { src: require('@/assets/images/img9.jpg'), height: 280 };
+const Img10 = { src: require('@/assets/images/img10.jpg'), height: 220 };
 
 export default function Index() {
   return (
@@ -12,10 +18,16 @@ export default function Index() {
       <View style={styles.imageContainer}>
         <ImageViewer imgSource={Img1.src} height={Img1.height}/>
         <ImageViewer imgSource={Img2.src} height={Img2.height}/>
+        <ImageViewer imgSource={Img5.src} height={Img5.height}/>
+        <ImageViewer imgSource={Img6.src} height={Img6.height}/>
+        <ImageViewer imgSource={Img7.src} height={Img7.height}/>
       </View>
       <View style={styles.imageContainer}>
         <ImageViewer imgSource={Img3.src} height={Img3.height}/>
         <ImageViewer imgSource={Img4.src} height={Img4.height}/>
+        <ImageViewer imgSource={Img8.src} height={Img8.height}/>
+        <ImageViewer imgSource={Img9.src} height={Img9.height}/>
+        <ImageViewer imgSource={Img10.src} height={Img10.height}/>
       </View>
     </View>
   );
@@ -30,6 +42,7 @@ const styles = StyleSheet.create({
     overflowY: "auto",
     gap: 10,
     paddingHorizontal: 10,
+    paddingTop: 10,
   },
   imageContainer: {
     flex: 1,
