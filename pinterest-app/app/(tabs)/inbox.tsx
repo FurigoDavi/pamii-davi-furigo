@@ -1,36 +1,36 @@
 import Entypo from '@expo/vector-icons/Entypo';
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const avatarPadrao = require('../../assets/images/avatar.png');
+const defaultAvatar = require('../../assets/images/avatar.png');
 
 const chats = [
-  { id: '1', name: 'Ana', ultimaMensagem: 'Oi! Tudo bem?', foto: avatarPadrao },
-  { id: '2', name: 'Carlos', ultimaMensagem: 'Gostei da ideia!', foto: avatarPadrao },
-  { id: '3', name: 'Ricardo', ultimaMensagem: 'O Leandrinho é um merda', foto: avatarPadrao },
-  { id: '4', name: 'Leandrinho', ultimaMensagem: 'O Ricardo é legal', foto: avatarPadrao },
-  { id: '5', name: 'Rodney', ultimaMensagem: 'Rodney', foto: avatarPadrao },
-  { id: '6', name: 'Ariana Grande', ultimaMensagem: 'Sou zépekena', foto: avatarPadrao },
-  { id: '7', name: 'Taylor Swift', ultimaMensagem: 'Show gratuito pra vc', foto: avatarPadrao },
-  { id: '8', name: 'Dedé do Vasco', ultimaMensagem: 'Sou do Vasco!', foto: avatarPadrao },
+  { id: '1', name: 'Ana', lastMessage: 'Oi! Tudo bem?', photo: defaultAvatar },
+  { id: '2', name: 'Carlos', lastMessage: 'Gostei da ideia!', photo: defaultAvatar },
+  { id: '3', name: 'Ricardo', lastMessage: 'O Leandrinho é um merda', photo: defaultAvatar },
+  { id: '4', name: 'Leandrinho', lastMessage: 'O Ricardo é legal', photo: defaultAvatar },
+  { id: '5', name: 'Rodney', lastMessage: 'Rodney', photo: defaultAvatar },
+  { id: '6', name: 'Ariana Grande', lastMessage: 'Sou zépekena', photo: defaultAvatar },
+  { id: '7', name: 'Taylor Swift', lastMessage: 'Show gratuito pra vc', photo: defaultAvatar },
+  { id: '8', name: 'Dedé do Vasco', lastMessage: 'Sou do Vasco!', photo: defaultAvatar },
 ];
 
 export default function Home() {
   return (
     <View style={styles.container}>
 
-      <View style={styles.cabecalho}>
-        <Text style={styles.textoCabecalho}>Atualizações</Text>
-        <Text style={styles.textoCabecalho}>Caixa de Entrada</Text>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Atualizações</Text>
+        <Text style={styles.headerText}>Caixa de Entrada</Text>
       </View>
 
-      <View style={styles.novaMensagem}>
+      <View style={styles.newMessage}>
         <Entypo 
           name="new-message" 
           size={24} 
           color="black" 
-          style={styles.iconNovaMensagem}
+          style={styles.newMessageIcon}
         />
-        <Text style={styles.textoNovaMensagem}>Nova Mensagem</Text>
+        <Text style={styles.newMessageText}>Nova Mensagem</Text>
       </View>
 
       <FlatList
@@ -40,12 +40,12 @@ export default function Home() {
           <TouchableOpacity style={styles.chatItem}>
             
             <Image 
-              source={item.foto || avatarPadrao} 
+              source={item.photo || defaultAvatar} 
               style={styles.avatar} />
 
             <View>
               <Text style={styles.name}>{item.name}</Text>
-              <Text style={styles.message}>{item.ultimaMensagem}</Text>
+              <Text style={styles.message}>{item.lastMessage}</Text>
             </View>
 
           </TouchableOpacity>
@@ -61,29 +61,29 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 
-  cabecalho: {
+  header: {
     padding: 12,
     flexDirection: 'row',
     justifyContent: 'center',
     gap: 24,
   },
 
-  textoCabecalho: {
+  headerText: {
     fontWeight: '500',
   },
 
-  novaMensagem: {
+  newMessage: {
     padding: 12,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
   },
 
-  textoNovaMensagem: {
+  newMessageText: {
     fontWeight: 'bold',
   },
 
-  iconNovaMensagem: {
+  newMessageIcon: {
     color: '#FFF',
     padding: 8,
     backgroundColor: '#E00',
