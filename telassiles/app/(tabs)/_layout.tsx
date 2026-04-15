@@ -33,7 +33,8 @@ export default function TabLayout() {
         options={{
           title: 'Conversas',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="chatbubble"
+            <Ionicons
+              name="chatbubble"
               size={ size }
               color={ color }
             />
