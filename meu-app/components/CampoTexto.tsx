@@ -1,6 +1,10 @@
 import { Input, InputField } from "@/components/ui/input";
 
-export default function CampoText({ placeholder }) {
+interface CampoTextProps {
+  placeholder?: string;
+}
+
+export default function CampoText({ placeholder }: CampoTextProps) {
   return (
     <Input>
       <InputField placeholder={placeholder} />
