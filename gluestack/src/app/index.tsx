@@ -33,14 +33,14 @@ export default function Index() {
     <View style={styles.container}>
       <FormControl
         isInvalid={isInvalid}
-        size="md"
+        size="lg"
         style={styles.formControl}
       >
         <FormControlLabel>
           <FormControlLabelText>Senha</FormControlLabelText>
         </FormControlLabel>
 
-        <Input>
+        <Input size="xl">
           <InputField
             type="password"
             value={inputValue}
@@ -48,7 +48,7 @@ export default function Index() {
             placeholder="Digite sua senha"
           />
           <InputSlot style={{ paddingRight: 12 }}>
-            <InputIcon as={AlertCircleIcon} />
+            <InputIcon as={AlertCircleIcon} size="lg" />
           </InputSlot>
         </Input>
 
@@ -66,7 +66,7 @@ export default function Index() {
         </FormControlError>
       </FormControl>
 
-      <Button onPress={handleSubmit} isDisabled={isSubmitting} style={styles.button}>
+      <Button onPress={handleSubmit} isDisabled={isSubmitting} size="lg" style={styles.button}>
         {isSubmitting && <ButtonSpinner color="white" />}
         <ButtonText>{isSubmitting ? "Enviando..." : "Entrar"}</ButtonText>
       </Button>
@@ -77,16 +77,22 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: "100%",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#9c1a1a",
+    backgroundColor: "#F2F1EF",
     paddingHorizontal: 24,
     gap: 16,
   },
+
   formControl: {
     width: "100%",
+    maxWidth: 400,
   },
+
   button: {
     width: "100%",
+    maxWidth: 400,
   },
+
 });
